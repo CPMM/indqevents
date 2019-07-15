@@ -1,0 +1,20 @@
+.w250{
+    width: 250px;
+}
+
+.w150{
+    width: 150px;
+}
+
+agm-map {
+        width: 100%;
+        height: 400px;
+    
+}
+
+.contenedor-mapa{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  

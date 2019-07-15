@@ -1,0 +1,36 @@
+<div class="">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand text-white">INDQ Events</a>
+    </nav>
+</div>
+<div class="card m-auto col-lg-6">
+    <div class="card-body">
+        <div class="text-center">
+            <h3 class="card-title">INDQ events</h3>
+            <h4>Iniciar sesión</h4>
+        </div>
+        <form #loginForm="ngForm">
+            <div class="form-group">
+                <label>Correo:</label>
+                <input type="email" name="email" #email="ngModel" [(ngModel)]="dataLogin.email" class="form-control"
+                    tabindex="1" placeholder="Ingresa tu correo electronico" autofocus required>
+            </div>
+            <div class="form-group">
+                <label>Contraseña:</label>
+                <input type="password" name="password" #password="ngModel" [(ngModel)]="dataLogin.password"
+                    class="form-control" tabindex="2" placeholder="Ingresa tu contraseña" minlength="8" required>
+            </div>
+
+            <div class="form-group">
+                <div class="text-center">
+                    <button type="button" tabindex="3" (click)="entrar()" [disabled]="!loginForm.valid"
+                        class="btn btn-primary btn-sm">Acceder</button>
+                </div>
+                <div class="text-center mt-2">
+                    <a class="btn btn-link" tabindex="4" [routerLink]="['/register']">¿No tienes una cuenta?
+                        Registrate</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

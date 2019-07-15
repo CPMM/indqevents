@@ -1,0 +1,108 @@
+<div class="">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand text-white">INDQ Events</a>
+    </nav>
+</div>
+<div class="card mt-4 m-auto col-lg-10">
+    <div class="card-body">
+        <div class="text-center mb-5">
+            <h3 class="card-title">INDQ events</h3>
+            <h4>Registro</h4>
+        </div>
+        <form #registroForm="ngForm">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Nombre (s):</label>
+                        <input type="text" name="firstname" #firstname="ngModel" [(ngModel)]="nuevoUsuario.firstName"
+                            autofocus tabindex="1" class="form-control" placeholder="Ingresa tu nombre" required
+                            pattern="[a-zA-Z\s]*">
+                        <small *ngIf="firstname.touched && !firstname.valid" class="form-text text-danger danger">
+                            El nombre ingresado es incorrecto
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            Correo:
+                            <span class="invalid-feedback">adasdiuh</span>
+                        </label>
+                        <input type="email" name="email" #email="ngModel" [(ngModel)]="nuevoUsuario.email"
+                            class="form-control" placeholder="Ingresa tu correo electronico" required tabindex="3"
+                            pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}">
+                        <small *ngIf="email.touched && !email.valid" class="form-text text-danger danger">
+                            El correo electrónico ingresado es incorrecto
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <label>Contraseña: </label>
+                        <input type="password" name="password" #password="ngModel" [(ngModel)]="nuevoUsuario.password"
+                            tabindex="5" class="form-control" required placeholder="Ingresa tu contraseña"
+                            minlength="8">
+                        <small *ngIf="password.touched && !password.valid" class="form-text text-danger danger">
+                            La contraseña debe tener un mínimo de 8 caracteres
+                        </small>
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Apellidos (s):</label>
+                        <input type="email" name="lastname" #lastname="ngModel" [(ngModel)]="nuevoUsuario.lastName"
+                            class="form-control" placeholder="Ingresa tu correo electronico" required tabindex="2"
+                            pattern="[a-zA-Z\s]*">
+                    </div>
+
+
+                    <div class="form-group mt-4">
+                        <label>Genero</label> <br>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" value="male" id="male" name="gender" #gender="ngModel" tabindex="4"
+                                [(ngModel)]="nuevoUsuario.gender" class="custom-control-input">
+                            <label class="custom-control-label" for="male">Maculino</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" value="female" id="female" name="gender" #gender="ngModel"
+                                [(ngModel)]="nuevoUsuario.gender" class="custom-control-input">
+                            <label class="custom-control-label" for="female">Femenino</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-4">
+                        <label>Confirmar contraseña: </label>
+                        <input type="password" name="password2" #password2="ngModel" [(ngModel)]="confirmarPwd"
+                            tabindex="6" class="form-control" required placeholder="Ingresa tu contraseña"
+                            minlength="8">
+                        <small *ngIf="password2.touched && nuevoUsuario.password != confirmarPwd"
+                            class="form-text text-danger danger">
+                            La contraseña no coincide
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+                <div class="text-center">
+                    <button type="button" (click)="registrar()"
+                        [disabled]="!registroForm.valid || nuevoUsuario.password != confirmarPwd"
+                        class="btn btn-primary btn-sm">
+                        <span *ngIf="!registroForm.valid || nuevoUsuario.password != confirmarPwd">
+                            Complete el formulario para el registro
+                        </span>
+                        <span *ngIf="registroForm.valid || nuevoUsuario.password == confirmarPwd">
+                            Presione para confirmar
+                        </span>
+                    </button>
+                </div>
+                <div class="text-center mt-2">
+                    <a class="btn btn-link" [routerLink]="['/login']">¿Ya eres miembro? Inicia sesión</a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
