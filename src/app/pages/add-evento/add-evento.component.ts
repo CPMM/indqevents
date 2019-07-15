@@ -52,12 +52,19 @@ export class AddEventoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.hoy = moment().format('YYYY-MM-DD');
+    this.hoy = moment().format('YYYY-MM-DD hh:mm');
   }
 
   guardar() {
+    if(moment(this.hoy).diff(this.evento.date,'hours')>=1){
+      swal.fire({
+        title: "Error!",
+        text: "La fecha del evento no debe ser menor al día ni hora de actual!",
+        type: "success",
+      });
+      return;
+    }
     this.evento.location = [this.marker.lng, this.marker.lat];
-    console.log(this.evento);
     this._evento.addEvento(this.evento).subscribe(
       res => {
         swal.fire({

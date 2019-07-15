@@ -28,7 +28,7 @@
 
                 <div class="form-group">
                     <label>Fecha:</label>
-                    <input type="date" name="fecha" #fecha="ngModel" [(ngModel)]="evento.date" class="form-control"
+                    <input type="datetime-local" name="fecha" #fecha="ngModel" [(ngModel)]="evento.date" class="form-control"
                         tabindex="3" [min]="hoy" placeholder="Ingresa la fecha del evento" required>
                     <small *ngIf="fecha.touched && !fecha.valid " class="form-text text-danger danger">La fecha no es
                         valida</small>
