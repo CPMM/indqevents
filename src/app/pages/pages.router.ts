@@ -14,6 +14,7 @@ const PagesRoutes: Routes = [
         component: PagesComponent, 
         canActivate:[LogueadoGuard],
         children: [
+            { path: '', component: HomeComponent },
             { path: 'home', component: HomeComponent},
             { path: 'addevent', component: AddEventoComponent }
         ]

@@ -55,6 +55,7 @@ export class HomeComponent implements OnInit {
       res=>{
         this.eventos = res['items'];
         this.paginaActual = res['page'];
+        console.log(this.paginaActual)
         this.paginas = Array.from({length: res['pages']}, (x,i) => i);
         this.cargando=false;
       },

@@ -5,7 +5,7 @@ const express = require('express'),
 app.use(express.static(path.join(__dirname, 'dist', 'indqevents')));
 
 app.get('/', (req,res)=>{
-    res.render(path.join(__dirname,'dist', 'indqevents'));
+    res.send(path.join(__dirname,'dist', 'indqevents'));
 });
 
 app.listen(3000 || process.env.PORT, () => {

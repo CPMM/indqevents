@@ -12,14 +12,14 @@
 <div class="row mt-4">
     <div class="col-lg-10 offset-lg-1">
         <label>Buscar ubicación: </label>
-        <input id="places"  class="form-control" ngx-google-places-autocomplete #placesRef="ngx-places"
+        <input id="places" class="form-control" ngx-google-places-autocomplete #placesRef="ngx-places"
             (onAddressChange)="handleAddressChange($event)" />
     </div>
 </div>
 <!-- END GOOGLE PLACES -->
 
 <!-- FILTROS -->
-<div class="row mt-3 mb-5">
+<div class="row mt-3 mb-3">
     <div class="col-lg-10 offset-lg-1">
         <button *ngIf="filtros.title" (click)="quitarFiltros('title')" class="btn btn-link"> <i
                 class="fa fa-times"></i>Titulo</button>
@@ -28,6 +28,19 @@
     </div>
 </div>
 <!-- END FILTROS -->
+
+
+<div class="row" *ngIf="paginas && !cargando && eventos.length>0">
+    <div class="col-lg-12">
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                <li class="page-item" *ngFor="let p of paginas">
+                    <a class="page-link" (click)="cambiarPagina(p)" [ngClass]="{'active': (p+1) == paginaActual}">{{p + 1}}</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
 
 
 
@@ -91,7 +104,7 @@
         <nav aria-label="Page navigation">
             <ul class="pagination justify-content-center">
                 <li class="page-item" *ngFor="let p of paginas">
-                    <a class="page-link" (click)="cambiarPagina(p)">{{p + 1}}</a>
+                    <a class="page-link" (click)="cambiarPagina(p)" [ngClass]="{'active': (p+1) == paginaActual}">{{p + 1}}</a>
                 </li>
             </ul>
         </nav>

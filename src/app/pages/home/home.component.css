@@ -3,3 +3,6 @@ agm-map {
     height: 300px;
 
 }
+.active{
+    background: rgba(67, 243, 67, 0.5);
+}
