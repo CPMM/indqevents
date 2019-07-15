@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
   public entrar(){
     this._usuario.login(this.dataLogin).subscribe(
       res=>{
-        console.log(res);
         swal.fire({
           title:'Bienvenido',
           timer: 500,
