@@ -57,7 +57,9 @@ export class EventoService {
 
     let { page, title, lat, lng } = filtros;
     let newUrl = `${this.url}events?page=${page}`;
-    if (title) newUrl += `&title=${title}`;
+    if (title){
+      newUrl = `${this.url}events?title=${title}`;
+    } 
     if (lat) newUrl += `&lat=${lat}`;
     if (lng) newUrl += `&lng=${lng}`;
     newUrl = encodeURI(newUrl);
