@@ -1,8 +1,8 @@
 <div class="row">
     <div class="col-lg-10 offset-lg-1">
-        <label>Buscar por titulo:</label>
+        <label>Buscar por título:</label>
         <div class="input-group">
-            <input type="text" class="form-control" name="titulo" #titulo="ngModel" [(ngModel)]="filtros.title">
+            <input type="text" class="form-control" name="titulo" #titulo="ngModel" [(ngModel)]="filtros.title" placeholder="Ingresa título del evento">
             <button class="btn btn-success" (click)="getEventos()">Buscar</button>
         </div>
     </div>
@@ -22,7 +22,7 @@
 <div class="row mt-3 mb-3">
     <div class="col-lg-10 offset-lg-1">
         <button *ngIf="filtros.title" (click)="quitarFiltros('title')" class="btn btn-link"> <i
-                class="fa fa-times"></i>Titulo</button>
+                class="fa fa-times"></i>Título</button>
         <button *ngIf="filtros.lat" (click)="quitarFiltros('dir')" class="btn btn-link"> <i
                 class="fa fa-times"></i>Ubicación</button>
     </div>
@@ -85,7 +85,7 @@
                                 Asistiré
                             </button>
                             <button *ngIf="e.willYouAttend" (click)="desAsistire(e.id)"
-                                class="btn btn-warning btn-sm btn-block">
+                                class="btn btn-warning btn-sm btn-block text-white">
                                 No asistiré
                             </button>
                         </div>
@@ -99,7 +99,7 @@
     </div>
 </div>
 
-<div class="row" *ngIf="paginas && !cargando && eventos.length>0">
+<div class="row" *ngIf="paginas && !cargando">
     <div class="col-lg-12">
         <nav aria-label="Page navigation">
             <ul class="pagination justify-content-center">

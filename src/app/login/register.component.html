@@ -32,7 +32,6 @@
                     <div class="form-group col-lg-6">
                             <label>
                                 Correo electrónico:
-                                <span class="invalid-feedback">adasdiuh</span>
                             </label>
                             <input type="email" name="email" #email="ngModel" [(ngModel)]="nuevoUsuario.email" class="form-control"
                                 placeholder="Ingresa tu correo electrónico" required tabindex="3"
@@ -44,11 +43,11 @@
             
             
                         <div class="form-group col-lg-6">
-                            <label>Genero</label> <br>
+                            <label>Género</label> <br>
                             <div class="custom-control custom-radio custom-control-inline">
                                 <input type="radio" value="male" id="male" name="gender" #gender="ngModel" tabindex="4"
                                     [(ngModel)]="nuevoUsuario.gender" class="custom-control-input">
-                                <label class="custom-control-label" for="male">Maculino</label>
+                                <label class="custom-control-label" for="male">Masculino</label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
                                 <input type="radio" value="female" id="female" name="gender" #gender="ngModel"
@@ -90,18 +89,18 @@
             <div class="form-group mt-4">
                 <div class="text-center">
                     <button type="button" (click)="registrar()"
-                        [disabled]="!registroForm.valid || nuevoUsuario.password != confirmarPwd"
+                        [disabled]="!registroForm.valid || nuevoUsuario.password != confirmarPwd || nuevoUsuario.gender==''"
                         class="btn btn-primary btn-sm">
-                        <span *ngIf="!registroForm.valid || nuevoUsuario.password != confirmarPwd">
+                        <span *ngIf="!registroForm.valid || nuevoUsuario.password != confirmarPwd || nuevoUsuario.gender==''">
                             Complete el formulario para el registro
                         </span>
-                        <span *ngIf="registroForm.valid && nuevoUsuario.password == confirmarPwd">
+                        <span *ngIf="registroForm.valid && nuevoUsuario.password == confirmarPwd && nuevoUsuario.gender!=''">
                             Presione para confirmar
                         </span>
                     </button>
                 </div>
                 <div class="text-center mt-2">
-                    <a class="btn btn-link" [routerLink]="['/login']">¿Ya eres miembro? Inicia sesión</a>
+                    <a class="btn btn-link" [routerLink]="['/login']">¿Ya eres miembro?, Inicia sesión</a>
                 </div>
             </div>
         </form>

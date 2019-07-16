@@ -10,28 +10,27 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="form-group">
-                    <label>Titulo:</label>
+                    <label>Título:</label>
                     <input type="text" name="titulo" #titulo="ngModel" [(ngModel)]="evento.title" class="form-control"
-                        tabindex="1" placeholder="Ingresa el titulo del evento" required>
-                    <small *ngIf="titulo.touched && !titulo.valid" class="form-text text-danger danger">El titulo no es
-                        valido</small>
+                        tabindex="1" placeholder="Ingresa el título del evento" required>
+                    <small *ngIf="titulo.touched && !titulo.valid" class="form-text text-danger danger">
+                        El título no es válido</small>
                 </div>
                 <div class="form-group">
                     <label>Descripción:</label>
                     <textarea name="descripcion" #descripcion="ngModel" [(ngModel)]="evento.description" rows="4"
                         tabindex="2" class="form-control" tabindex="1" placeholder="Ingresa descripción del evento"
                         required></textarea>
-                    <small *ngIf="descripcion.touched && !descripcion.valid" class="form-text text-danger danger">La
-                        descrioción no es
-                        valida</small>
+                    <small *ngIf="descripcion.touched && !descripcion.valid" class="form-text text-danger danger">
+                        La descripción no es válida</small>
                 </div>
 
                 <div class="form-group">
                     <label>Fecha:</label>
                     <input type="datetime-local" name="fecha" #fecha="ngModel" [(ngModel)]="evento.date" class="form-control"
                         tabindex="3" [min]="hoy" placeholder="Ingresa la fecha del evento" required>
-                    <small *ngIf="fecha.touched && !fecha.valid " class="form-text text-danger danger">La fecha no es
-                        valida</small>
+                    <small *ngIf="fecha.touched && !fecha.valid " class="form-text text-danger danger">
+                        La fecha no es válida</small>
                 </div>
 
             </div>
@@ -39,7 +38,7 @@
             <!-- SUBIR IMAGEN -->
             <div class="col-lg-6">
                 <label>Imagen del evento</label>
-                <div class="imagen" align="center">
+                <div class="imagen" >
                     <img *ngIf="!imgTemp && !subiendo" src="assets/img/noimage.png" class="w150 m-4" alt="">
                     <img *ngIf="imgTemp && !subiendo" [src]="imgTemp" class="w250 m-5" alt="">
                     <app-loading *ngIf="subiendo"></app-loading>
@@ -55,8 +54,8 @@
                 </small>
                 <br>
                 <div class="mt-2 text-center">
-                    <button *ngIf="(imgTemp && !subiendo) || evento.image" class="btn btn-warning mr-2 btn-sm" (click)="quitarImg()">
-                        <i class="fa fa-plus"></i>
+                    <button *ngIf="(imgTemp && !subiendo) || evento.image" class="btn btn-warning mr-2 btn-sm text-white" (click)="quitarImg()">
+                        <i class="fa fa-close"></i>
                         Quitar imagen
                     </button>
                     <button *ngIf="imgTemp && !evento.image && !subiendo" class="btn btn-success btn-sm" (click)="subirImg()">
